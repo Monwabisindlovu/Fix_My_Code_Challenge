@@ -1,28 +1,23 @@
-#!/usr/bin/python3
+#!/usr/bin/node
+/*
+    Print a square with the character #
+    The size of the square must be the first argument 
+    of the program.
+*/
 
-class Square():
-    
-    width = 0
-    height = 0
 
-    def __init__(self, *args, **kwargs):
-        for key, value in kwargs.items():
-            setattr(self, key, value)
+if (process.argv.length <= 2) {
+    process.stderr.write("Missing argument\n");
+    process.stderr.write("Usage: ./1-print_square.js <size>\n");
+    process.stderr.write("Example: ./1-print_square.js 8\n");
+    process.exit(1)
+}
 
-    def area_of_my_square(self):
-        """ Area of the square """
-        return self.width * self.height
+size = parseInt(process.argv[2], 10)
 
-    def perimeter_of_my_square(self):
-        return 4 * self.width
-
-    def __str__(self):
-        return "{}/{}".format(self.width, self.height)
-
-if __name__ == "__main__":
-
-    s = Square(width=12, height=12)
-    print(s)
-    print(s.area_of_my_square())
-    print(s.perimeter_of_my_square())
-
+for (let i = 0 ; i < size ; i ++) {
+    for (let j = 0 ; j < size ; j ++) {
+        process.stdout.write("#");
+    }
+    process.stdout.write("\n");
+}
